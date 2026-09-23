@@ -27,6 +27,9 @@ return {
     -- Disable and enable cursors.
     set({ "n", "x" }, "<c-q>", mc.toggleCursor)
 
+    -- Add a cursor for all matches of cursor word/selection in the document.
+    set({ "n", "x" }, "<leader>A", mc.matchAllAddCursors)
+
     -- Mappings defined in a keymap layer only apply when there are
     -- multiple cursors. This lets you have overlapping mappings.
     mc.addKeymapLayer(function(layerSet)
