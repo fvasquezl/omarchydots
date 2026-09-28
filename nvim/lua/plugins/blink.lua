@@ -1,10 +1,12 @@
 return {
   "saghen/blink.cmp",
   opts = {
-    -- VSCode-like: <Tab> accepts the preselected item, <CR> always inserts a
-    -- newline. LazyVim chains snippet_forward/AI accept onto <Tab> for this preset.
+    -- VSCode-like: <Tab> or <CR> accepts the preselected item; with no menu
+    -- open they fall back to their normal behavior. LazyVim chains
+    -- snippet_forward/AI accept onto <Tab> for this preset.
     keymap = {
       preset = "super-tab",
+      ["<CR>"] = { "accept", "fallback" },
     },
     completion = {
       list = {
