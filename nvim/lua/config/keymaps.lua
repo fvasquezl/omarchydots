@@ -51,3 +51,10 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.keymap.set("n", "<C-q>", function()
   Snacks.bufdelete()
 end, { desc = "Delete Buffer" })
+
+-- Do things without affecting the registers
+vim.keymap.set("n", "x", '"_x', { desc = "Delete Char Without Yanking" })
+vim.keymap.set("n", "<leader>p", '"0p', { desc = "Paste Last Yank" })
+vim.keymap.set("n", "<leader>P", '"0P', { desc = "Paste Last Yank Before" })
+vim.keymap.set({ "n", "v" }, "<leader>x", '"_d', { desc = "Delete Without Yanking" })
+vim.keymap.set({ "n", "v" }, "<leader>X", '"_D', { desc = "Delete Line Without Yanking" })
