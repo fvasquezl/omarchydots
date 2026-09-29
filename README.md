@@ -19,6 +19,9 @@ Backup of dotfiles for an Omarchy/Hyprland setup, snapshotted from `~/.config/`.
   - `x` — delete a character without yanking it.
   - `<leader>p` / `<leader>P` — paste the last yank (`"0`) after/before the
     cursor, even after deleting something.
+  - `<leader>k{motion}` / `<leader>kk` — delete without yanking (`"_d`), e.g.
+    `<leader>kiw`, `<leader>kap`, `<leader>kag`; also on a visual selection.
+  - `<leader>C{motion}` — change without yanking (`"_c`), e.g. `<leader>Ciw`.
 - **`omarchy/`** — Omarchy branding, hooks, themes, and shell config.
 - **`foot/foot.ini`** — foot terminal config, font size 13.
 - **`starship.toml`** — Starship prompt config, includes a `[python]` module
