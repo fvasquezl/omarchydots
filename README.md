@@ -4,10 +4,12 @@ Backup of dotfiles for an Omarchy/Hyprland setup, snapshotted from `~/.config/`.
 
 ## Contents
 
-- **`hypr/`** — Hyprland config. Dual 4K@60 monitor setup: `DP-2` on the left
-  (`0x0`), `DP-1` on the right (`auto-right`), both at scale `1.3`
+- **`hypr/`** — Hyprland config. Dual 4K@60 monitor setup: `DP-1` on the left
+  (`0x0`), `DP-2` on the right (`auto-right`), both at scale `1.3`
   (`monitors.lua`). Uses `AQ_NO_ATOMIC=1` / `AQ_NO_MODIFIERS=1` to work around
-  a DRM/i915 bandwidth issue that otherwise blocks dual 4K@60.
+  a DRM/i915 bandwidth issue that otherwise blocks dual 4K@60. Keyboard layout
+  is US international with AltGr dead keys (`us` / `altgr-intl` in
+  `input.lua`): plain quotes type immediately, accents and `ñ ¿ ¡` via AltGr.
 - **`nvim/`** — LazyVim config. Python LSP set to `basedpyright` (instead of
   the default `pyright`) plus `ruff` for linting/formatting. The
   `vim.g.lazyvim_python_lsp` setting lives in `lua/config/options.lua` (must
@@ -22,6 +24,13 @@ Backup of dotfiles for an Omarchy/Hyprland setup, snapshotted from `~/.config/`.
   - `<leader>k{motion}` / `<leader>kk` — delete without yanking (`"_d`), e.g.
     `<leader>kiw`, `<leader>kap`, `<leader>kag`; also on a visual selection.
   - `<leader>C{motion}` — change without yanking (`"_c`), e.g. `<leader>Ciw`.
+
+  Completion (`lua/plugins/blink.lua`): `<Tab>` or `<CR>` accepts the
+  preselected item, no ghost text. Also re-applies blink.cmp's buffer keymaps
+  on `BufEnter` in insert mode, since its `InsertEnter` hook misses buffers you
+  switch to while already inserting (e.g. by mouse click).
+  `lua/plugins/basedpyright-watch.lua` lets basedpyright watch files on disk,
+  so packages newly installed in the venv are picked up without a restart.
 - **`omarchy/`** — Omarchy branding, hooks, themes, and shell config.
 - **`foot/foot.ini`** — foot terminal config, font size 13.
 - **`starship.toml`** — Starship prompt config, includes a `[python]` module

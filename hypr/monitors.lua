@@ -28,9 +28,9 @@ hl.env("AQ_NO_MODIFIERS", "1")
 -- it actually applies, instead of hardcoding a value that can drift.
 -- Logical left/right order must match the physical desk layout, or the
 -- cursor crosses on the outer edges instead of the inner (adjacent) ones.
--- DP-2 is physically on the left, DP-1 on the right.
-hl.monitor({ output = "DP-2", mode = "3840x2160@60", position = "0x0", scale = 1.3 })
-hl.monitor({ output = "DP-1", mode = "3840x2160@60", position = "auto-right", scale = 1.3 })
+-- DP-1 is physically on the left, DP-2 on the right.
+hl.monitor({ output = "DP-1", mode = "3840x2160@60", position = "0x0", scale = 1.3 })
+hl.monitor({ output = "DP-2", mode = "3840x2160@60", position = "auto-right", scale = 1.3 })
 
 -- Pin workspaces 1-3 to DP-2 and 4-6 to DP-1.
 hl.workspace_rule({ workspace = "1", monitor = "DP-2" })
