@@ -8,7 +8,11 @@ Backup of dotfiles for an Omarchy/Hyprland setup, snapshotted from `~/.config/`.
   (`0x0`), `DP-1` on the right (`auto-right`), both at scale `1.5`
   (`monitors.lua`). Workspaces are handled by Omarchy's per-monitor blocks. Uses `AQ_NO_ATOMIC=1` / `AQ_NO_MODIFIERS=1` to work around
   a DRM/i915 bandwidth issue that otherwise blocks dual 4K@60. `bindings.lua`
-  adds a Herdr launcher on `SUPER+CTRL+RETURN` and the legacy dictation keys.
+  adds a Herdr launcher on `SUPER+CTRL+RETURN` (opens foot with
+  JetBrainsMono Nerd Font size 12, overriding `foot.ini`) and the legacy
+  dictation keys. `input.lua` sets the keyboard to US English with AltGr dead
+  keys (`kb_variant = "altgr-intl"`): `AltGr+'` then a vowel gives á é í ó ú,
+  `AltGr+n` gives ñ.
 - **`nvim/`** — LazyVim config. Python LSP set to `basedpyright` (instead of
   the default `pyright`) plus `ruff` for linting/formatting. The
   `vim.g.lazyvim_python_lsp` setting lives in `lua/config/options.lua` (must
@@ -31,7 +35,11 @@ Backup of dotfiles for an Omarchy/Hyprland setup, snapshotted from `~/.config/`.
   `lua/plugins/basedpyright-watch.lua` lets basedpyright watch files on disk,
   so packages newly installed in the venv are picked up without a restart.
 - **`omarchy/`** — Omarchy branding, hooks, themes, and shell config.
-- **`foot/foot.ini`** — foot terminal config, font iA Writer Mono S size 9.
+- **`foot/foot.ini`** — foot terminal config, font JetBrainsMono Nerd Font
+  size 11.
+- **`herdr/config.toml`** — Herdr config (tmux-style keys, prefix
+  `Ctrl+Space`). `prefix+b` collapses/expands the workspaces sidebar, which
+  shrinks to a narrow strip (`sidebar_collapsed_mode = "compact"`).
 - **`starship.toml`** — Starship prompt config, includes a `[python]` module
   so an active virtualenv shows up in the prompt.
 
@@ -45,7 +53,8 @@ cp -r nvim ~/.config/
 cp -r omarchy ~/.config/
 cp foot/foot.ini ~/.config/foot/foot.ini
 cp starship.toml ~/.config/starship.toml
+cp herdr/config.toml ~/.config/herdr/config.toml
 ```
 
 Restart the affected component afterward (e.g. `omarchy restart terminal` for
-foot, a full Hyprland session restart for monitor/env changes).
+foot, `herdr server reload-config` for Herdr, a full Hyprland session restart for monitor/env changes).

@@ -56,3 +56,12 @@
 -- Enable touchpad gestures for moving focus (helpful on scrolling layout).
 -- hl.gesture({ fingers = 3, direction = "left", action = function() hl.dispatch(hl.dsp.focus({ direction = "l" })) end })
 -- hl.gesture({ fingers = 3, direction = "right", action = function() hl.dispatch(hl.dsp.focus({ direction = "r" })) end })
+
+-- US English with dead keys only via AltGr (á = AltGr+' a, ñ = AltGr+n, ü = AltGr+Shift+' u).
+hl.config({
+  input = {
+    kb_layout = "us",
+    kb_variant = "altgr-intl",
+    kb_options = "omarchy:shift_caps_compose",
+  },
+})
