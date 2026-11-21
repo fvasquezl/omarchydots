@@ -33,5 +33,5 @@ if o.dictation_installed and o.dictation_installed() then
   o.bind_hold("F9", "Start dictation (push-to-talk)", "omarchy-dictation start", "Stop dictation (push-to-talk)", "omarchy-dictation stop")
 end
 
--- Herdr in its own foot window with a larger font (foot default is size 9).
-o.rebind("SUPER + CTRL + RETURN", "Herdr", 'uwsm-app -- foot -o "font=iA Writer Mono S:size=12" herdr')
+-- Herdr in its own foot window with a larger font (foot default is size 11).
+o.rebind("SUPER + CTRL + RETURN", "Herdr", 'uwsm-app -- foot -o "font=JetBrainsMono Nerd Font:size=12" herdr')
