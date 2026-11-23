@@ -18,9 +18,9 @@ hl.env("AQ_NO_MODIFIERS", "1")
 
 -- Use "auto-right" instead of manual pixel math: Hyprland may round the scale
 -- (1.3 -> 1.3333334), which leaves gaps the cursor can't cross.
--- Logical order must match the physical desk: DP-2 left, DP-1 right.
-hl.monitor({ output = "DP-2", mode = "3840x2160@60", position = "0x0", scale = 1.5 })
-hl.monitor({ output = "DP-1", mode = "3840x2160@60", position = "auto-right", scale = 1.5 })
+-- Logical order must match the physical desk: DP-1 left, DP-2 right.
+hl.monitor({ output = "DP-1", mode = "3840x2160@60", position = "0x0", scale = 1.5 })
+hl.monitor({ output = "DP-2", mode = "3840x2160@60", position = "auto-right", scale = 1.5 })
 
 
 -- Configure a specific monitor.

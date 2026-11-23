@@ -81,7 +81,8 @@
         {
           "id": "omarchy.power"
         }
-      ]
+      ],
+      "tray": []
     },
     "position": "top"
   },

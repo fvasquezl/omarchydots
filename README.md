@@ -4,8 +4,8 @@ Backup of dotfiles for an Omarchy/Hyprland setup, snapshotted from `~/.config/`.
 
 ## Contents
 
-- **`hypr/`** — Hyprland config. Dual 4K@60 monitor setup: `DP-2` on the left
-  (`0x0`), `DP-1` on the right (`auto-right`), both at scale `1.5`
+- **`hypr/`** — Hyprland config. Dual 4K@60 monitor setup: `DP-1` on the left
+  (`0x0`), `DP-2` on the right (`auto-right`), both at scale `1.5`
   (`monitors.lua`). Workspaces are handled by Omarchy's per-monitor blocks. Uses `AQ_NO_ATOMIC=1` / `AQ_NO_MODIFIERS=1` to work around
   a DRM/i915 bandwidth issue that otherwise blocks dual 4K@60. `bindings.lua`
   adds a Herdr launcher on `SUPER+CTRL+RETURN` (opens foot with
@@ -34,11 +34,16 @@ Backup of dotfiles for an Omarchy/Hyprland setup, snapshotted from `~/.config/`.
   switch to while already inserting (e.g. by mouse click).
   `lua/plugins/basedpyright-watch.lua` lets basedpyright watch files on disk,
   so packages newly installed in the venv are picked up without a restart.
+  `lua/plugins/digraphs.lua` frees insert-mode `<C-k>` for digraphs (LazyVim
+  maps it to signature help). `plugin/resaltar_definiciones.lua` draws a
+  separator line above each Python `def`/`class` and bolds method names;
+  `:ResaltarDefs` toggles it. Swap files are disabled (`options.lua`).
 - **`omarchy/`** — Omarchy branding, hooks, themes, and shell config.
+  `hooks/theme-set.d/10-owe-sync` pings the owe daemon on theme change.
 - **`foot/foot.ini`** — foot terminal config, font JetBrainsMono Nerd Font
-  size 11.
+  size 15.
 - **`herdr/config.toml`** — Herdr config (tmux-style keys, prefix
-  `Ctrl+Space`). `prefix+b` collapses/expands the workspaces sidebar, which
+  `Ctrl+Space`, theme `catppuccin-latte` with blue accent). `prefix+b` collapses/expands the workspaces sidebar, which
   shrinks to a narrow strip (`sidebar_collapsed_mode = "compact"`).
 - **`starship.toml`** — Starship prompt config, includes a `[python]` module
   so an active virtualenv shows up in the prompt.
